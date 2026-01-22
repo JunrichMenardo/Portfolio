@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import projects from '../data/projects'
 import ProjectModal from './ProjectModal'
+import { sectionVariant } from '../utils/animations'
 
 const container = {
   hidden: {},
@@ -21,7 +22,7 @@ export default function Projects() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <section id="projects" className="section" aria-labelledby="projects-heading">
+    <motion.section id="projects" className="section" aria-labelledby="projects-heading" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={sectionVariant}>
       <h3 id="projects-heading">Selected Projects</h3>
       <motion.div className="grid" variants={container} initial="hidden" animate="show">
         {projects.map((p) => (
@@ -43,6 +44,6 @@ export default function Projects() {
       <AnimatePresence>
         {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
-    </section>
+    </motion.section>
   )
 }

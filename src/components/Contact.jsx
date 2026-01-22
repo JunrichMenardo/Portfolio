@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { sectionVariant } from '../utils/animations'
 
 export default function Contact() {
   const [message, setMessage] = useState('')
@@ -44,7 +45,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section contact" aria-labelledby="contact-heading">
+    <motion.section id="contact" className="section contact" aria-labelledby="contact-heading" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={sectionVariant}>
       <h3 id="contact-heading">Contact</h3>
       <p className="muted">Have a project idea, collaboration, or question? Send a note — I usually reply within 48 hours.</p>
       <motion.form className="contact-form" initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} onSubmit={handleSubmit} action={FORM_ENDPOINT} method="POST">
@@ -54,6 +55,6 @@ export default function Contact() {
         <textarea name="message" placeholder="Tell me about your project or question" value={message} onChange={(e) => setMessage(e.target.value)} required aria-label="Message" />
         <button type="submit">Send message</button>
       </motion.form>
-    </section>
+    </motion.section>
   )
 }

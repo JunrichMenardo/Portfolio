@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Avatar from '../assets/avatar.svg'
+import { sectionVariant } from '../utils/animations'
 
 export default function About() {
   const [imgSrc, setImgSrc] = useState(Avatar)
 
   useEffect(() => {
-    // Check for images in preferred locations in order:
-    // 1. /photos/profile.jpg  (recommended)
-    // 2. /profile.jpg
-    // If none found, the SVG `Avatar` remains as fallback.
+    // Check for images in preferred locations in order
     async function findImage() {
       try {
         const candidates = ['/photos/profile.jpg', '/profile.jpg']
@@ -28,8 +26,8 @@ export default function About() {
   }, [])
 
   return (
-    <section id="about" className="section about" aria-labelledby="about-heading">
-      <motion.div className="about-inner" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+    <motion.section id="about" className="section about" aria-labelledby="about-heading" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={sectionVariant}>
+      <motion.div className="about-inner" variants={sectionVariant}>
         <motion.div className="about-image" aria-hidden="false" initial={{ scale: 0.98, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>
           <img src={imgSrc} alt="Portrait" />
         </motion.div>
@@ -51,6 +49,6 @@ export default function About() {
           </ul>
         </motion.div>
       </motion.div>
-    </section>
+    </motion.section>
   )
 }

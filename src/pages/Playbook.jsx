@@ -1,8 +1,10 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { sectionVariant } from '../utils/animations'
 
 export default function Playbook() {
   return (
-    <section className="section" aria-labelledby="playbook-heading">
+    <motion.section className="section playbook" aria-labelledby="playbook-heading" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} variants={sectionVariant}>
       <h2 id="playbook-heading">The Future‑Proof Portfolio Playbook</h2>
 
       <h3>Phase 1 — Content Audit</h3>
@@ -31,6 +33,6 @@ export default function Playbook() {
       </p>
 
       <p className="muted">Tip: keep content concise and link to live demos or repos for deeper dives.</p>
-    </section>
+    </motion.section>
   )
 }

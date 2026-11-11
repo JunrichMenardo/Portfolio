@@ -7,7 +7,7 @@ import Home from './pages/Home'
 import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
-import Playbook from './pages/Playbook'
+import Credentials from './pages/Credentials'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
         <motion.main className="container" initial="hidden" animate="show" variants={pageContainer}>
           <Home />
           <Projects />
-          <Playbook />
+          <Credentials />
           <About />
           <Contact />
         </motion.main>

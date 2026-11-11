@@ -19,7 +19,7 @@ export default function Header() {
           <a href="#projects">Projects</a>
         </motion.div>
         <motion.div whileHover={{ y: -2 }} transition={{ type: 'spring', stiffness: 300 }}>
-          <a href="#playbook">Playbook</a>
+          <a href="#credentials">Credentials</a>
         </motion.div>
         <motion.div whileHover={{ y: -2 }} transition={{ type: 'spring', stiffness: 300 }}>
           <a href="#about">About</a>
